@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	form#formAddUser(name="register")
+		input#inputUserName(type="text", placeholder="username", name="username")
+		input#inputPassword(type="text", placeholder="password", name="password")
+		input#reinputPassword(type="text", placeholder="confirm password", name="confirm password")
+		input#inputUserEmail(type="text", placeholder="useremail", name="useremail")
+
+		button#registrationSubmit submit
