@@ -4,7 +4,7 @@ exports.login = function(req, res) {
     var db = req.db;
 
     // Get our form values. These rely on the "name" attributes
-    var userName = req.body.username;
+    var email = req.body.email;
     var userPassword = req.body.password;
 
     // Set our collection
@@ -12,8 +12,8 @@ exports.login = function(req, res) {
 
     // Submit to the DB
     collection.find({
-        "username" : userName,
-        "password" : userPassword
+        "email" : email,
+        "password" : password
     }, function (err, doc) {
         if (err) {
             // If it failed, return error

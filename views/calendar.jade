@@ -1,0 +1,51 @@
+extends ./base.jade
+append stylesheets
+	link(href='/stylesheets/fullcalendar/fullcalendar.css',rel='stylesheet')
+	link(href='/stylesheets/fullcalendar/fullcalendar.print.css',rel='stylesheet')
+block title
+	title Cream Culture - Calendar
+block body
+	body.calendar
+		block head
+			header#header
+				br
+				div.container
+					div.row
+						div(class='col-lg-4')
+							a.back <i class="fa fa-angle-left"></i> back to home
+						div(class='col-lg-4')
+							div#logo
+								h5 CREAM CULTURE CALENDAR
+						div(class='col-lg-4')
+							ul(id='nav',class='pull-right list-unstyled list-inline clearfix')
+								li.logged-user.no-border
+									div.btn-group.pull-right
+										button(type="button",class="btn btn-default")
+											span.avatar: img(src="/images/avatar.jpg")
+											span MARY S.
+										button(type="button",class="btn dropdown-toggle",data-toggle="dropdown")
+											span.caret
+											span.sr-only Toggle Dropdown
+										ul(class="dropdown-menu",role="menu")
+											li: a Action
+				br
+		block content
+			div.container
+				div.row
+					div.col-lg-12
+						ul(class='list-unstyled calendar-tools')
+							li.filter
+								small filter by
+								input(type="text")
+								i.fa.fa-sort-asc
+							li.search
+								small search
+								input(type="text")
+								i.fa.fa-search
+						div#calendar
+		append jscripts
+			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
+			script(src='/libs/bootstrap.js',type='text/javascript')
+			script(src='/libs/jquery-ui-1.10.2.custom.min.js',type='text/javascript')
+			script(src='/libs/fullcalendar.min.js',type='text/javascript')
+			script(src='/javascripts/calendar.js',type='text/javascript')
