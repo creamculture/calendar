@@ -1,5 +1,6 @@
 $("#registrationSubmit").click(function(){
-	if( $("#inputUserEmail").val()=="" || $("#inputPassword").val()=="" || $("#reinputPassword").val()=="" ){
+	if( $("#inputUserEmail").val()=="" || $("#inputPassword").val()=="" 
+			|| $("#reinputPassword").val()=="" || $("#inputUsername").val()=="" ){
 		alert("All fields must be completed");
 		return;
 	}

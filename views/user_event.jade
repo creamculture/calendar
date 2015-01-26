@@ -1,0 +1,176 @@
+extends ./base.jade
+
+block title
+	title Cream Culture - User Events
+block body
+	body
+		block head
+			header#header.inverted
+				br
+				div.container
+					div.row
+						div(class='col-lg-3')
+							div#logo
+								h5 CREAM CULTURE
+						div(class='col-lg-9')
+							ul(id='nav',class='pull-right list-unstyled list-inline clearfix')
+								li
+									a calendar
+								li
+									a magazine
+								li
+									a store
+								li.logged-user
+									div.btn-group.pull-right
+										button(type="button",class="btn btn-default")
+											span.avatar: img(src="/images/avatar.jpg")
+											span MARY S.
+										button(type="button",class="btn dropdown-toggle",data-toggle="dropdown")
+											span.caret
+											span.sr-only Toggle Dropdown
+										ul(class="dropdown-menu",role="menu")
+											li: a Action
+
+		block content
+			div#subnav
+				div.container
+					div.row
+						div.col-lg-12
+							ul(class='list-unstyled')
+								li: a home
+								li.active: a events
+								li: a profile
+								li.search.pull-right
+									small search
+									input(type="text")
+									i.fa.fa-search
+			header#user-profile-header
+				div.container
+					div.row
+						div.col-lg-6.col-lg-offset-2
+							p(class="paragraph text-justify").
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+						div.col-lg-4
+							div.add-event.text-center
+								img(src="/images/add-event.png")
+								a.add-btn
+									small add event
+			section#events
+				div.container
+					div.row#topbar
+						div.col-lg-6
+							h4.latest-events <i class="fa fa-calendar"></i> MY EVENTS <span class="ecount">(6)</span>
+						div.col-lg-6
+					div.row
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small1.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small1.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small2.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+					div.row
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small1.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small1.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+						div.col-lg-4
+							div.event
+								img(src="/images/event-small2.jpg")
+								ul(class="caption list-unstyled list-inline")
+									li
+										div.edate
+											span.month DEC
+											span.day 04
+									li
+										h4 COLDWATER CLASSIC
+										i.fa.fa-map-marker
+										span SANTA CRUZ, CA, USA
+			footer#footer
+				section.navigation
+					div.container
+						div.row
+							div.col-lg-6
+								ul.list-unstyled.list-inline.first
+									li: a faq
+									li: a contact us
+									li: a store
+									li: a block
+							div.col-lg-6
+								ul.list-unstyled.list-inline.pull-right
+									li: p find us on
+									li
+										a
+											i.fa.fa-facebook
+									li
+										a
+											i.fa.fa-twitter
+									li
+										a
+											i.fa.fa-google-plus
+									li
+										a
+											i.fa.fa-instagram
+				section.copyright
+					div.container
+						div.row
+							div.col-lg-12
+								span &copy; cream culture, inc
+								ul.list-unstyled.list-inline.pull-right
+									li: a terms of use
+									li: span -
+									li: a security and privacy
+
+
+		block jscripts
+			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
+			script(src='/libs/bootstrap.js',type='text/javascript')

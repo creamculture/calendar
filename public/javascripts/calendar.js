@@ -2,6 +2,9 @@
  * Created by kensey on 12/4/2014.
  */
 $(document).ready(function(){
+
+
+    // Full calendar related events //
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -43,12 +46,17 @@ $(document).ready(function(){
         return tpl;
     };
 
+    //Get events from server db
+    
     $('#calendar').fullCalendar({
         header: {
             left: 'title',
             center: '',
             right: 'prev,next'
         },
+		eventClick: function(calEvent, jsEvent, view) {
+			alert( calEvent.title );
+		},
         events: [
             {
                 title: 'iTunes Festival',
@@ -57,32 +65,6 @@ $(document).ready(function(){
                 location: 'sdasdsd',
                 important: true,
                 past:true
-            },
-            {
-                title: 'iTunes Festival',
-                start: new Date(y, m, 1),
-                location: 'sdasdsd',
-                past:true
-            },
-            {
-                title: 'iTunes Festival',
-                start: new Date(y, m, 5),
-                location: 'sdasdsd',
-                today:true
-                //past:true
-            },
-            {
-                title: 'iTunes Festival',
-                start: new Date(y, m, 10),
-                location: 'bleh',
-                //past:true
-            },
-            {
-                title: 'iTunes Festival',
-                start: new Date(y, m, 25),
-                location: 'blue',
-                important: true,
-                //past:true
             }
         ],
         eventRender: function(event, element) {

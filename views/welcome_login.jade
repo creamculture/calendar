@@ -25,8 +25,6 @@ block body
 						div(class='col-lg-9')
 							ul(id='nav',class='pull-right list-unstyled list-inline clearfix')
 								li
-									a(href="/calendar") calendar
-								li
 									a magazine
 								li
 									a store
@@ -69,11 +67,11 @@ block body
 						form#formAddUser(name="adduser",method="post",action="/login")
 							div#field-area
 								ul.list-unstyled.list-inline
-									li: label EMAIL ADDRESS
-									li: input(type="email")
+									li: label USERNAME
+									li: input(name="username")
 								ul.list-unstyled.list-inline
 									li: label PASSWORD
-									li: input(type="password")
+									li: input(name="password")
 								span forgot your password? <a class="ch">click here</a>
 							footer
 								ul.list-unstyled.list-inline

@@ -5,13 +5,19 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('welcome_login', { title: 'Welcome' });
+    res.render('welcome_login');
 
 });
 
 //Handle requests to the calendar controller
 var calendar = require("./calendar.js");
 router.get("/calendar", calendar.renderCalendarPage);
+
+//Handle requests to the userDashboard controller
+var userDashboard = require("./userDashboard.js");
+router.get("/dashboard", userDashboard.renderUserDashboard);
+router.post("/event", userDashboard.saveNewEvent);
+router.get("/event", userDashboard.getEvents);
 
 
 //Handle requests to register controller functions
