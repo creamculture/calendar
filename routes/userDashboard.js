@@ -9,7 +9,8 @@ exports.saveNewEvent = function(req, res) {
 	var name = req.body.eventName;
 	var address = req.body.eventAddr;
 	var city = req.body.eventCity;
-	var date = req.body.eventDate;
+	var startDate = req.body.startDate;
+    var endDate = req.body.endDate;
 	var description = req.body.eventDesc;
 
     var db = req.db;
@@ -19,7 +20,8 @@ exports.saveNewEvent = function(req, res) {
     	"name" : name,
     	"address" : address,
     	"city" : city,
-    	"date" : date,
+    	"startDate" : startDate,
+        "endDate" : endDate,
     	"description" : description
     	}, function (err, doc) {
 			if (err) 
@@ -30,12 +32,14 @@ exports.saveNewEvent = function(req, res) {
     );
 };
 
+//Called by calendar to populate with events
 exports.getEvents = function(req, res){
 
     var db = req.db;
     var collection = db.get("events");
 
-    collection.find( function(err, doc){
-        //Parse event documents to object that can be return to client and ingested by fullCalendar
-    })
+    collection.find( {}, function(err, doc){
+        res.send( doc );
+    });
+
 };

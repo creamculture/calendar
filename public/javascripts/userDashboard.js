@@ -1,14 +1,18 @@
 // In createEventTab
 
-//Turn input box into a datepicker
-$('#dateInput').datepicker({
-    format: "dd/mm/yyyy"
+//Turn input boxes into a datepicker
+$('#startDateInput').datepicker({
+    format: "mm/dd/yyyy"
+});  
+$('#endDateInput').datepicker({
+    format: "mm/dd/yyyy"
 });  
 
 //Handle sending form with new event info to server
 $("#createEventSubmit").click(function(){
 	if( $("#eventNameInput").val()=="" || $("#addressInput").val()=="" 
-			|| $("#cityInput").val()=="" ||  $("#big").val() ){
+			|| $("#cityInput").val()=="" ||  $("#big").val()=="" || 
+			$("#startDateInput").val()=="" || $("#endDateInput").val()=="" ){
 		alert("All fields must be completed");
 	}
 	else{

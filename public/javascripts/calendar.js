@@ -1,14 +1,5 @@
-/**
- * Created by kensey on 12/4/2014.
- */
+
 $(document).ready(function(){
-
-
-    // Full calendar related events //
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
 
     /**
      * De acuerdo al psd y a mi interpretacion, existen las siguientes clasificaciones de eventos:
@@ -46,29 +37,38 @@ $(document).ready(function(){
         return tpl;
     };
 
-    //Get events from server db
-    
-    $('#calendar').fullCalendar({
-        header: {
-            left: 'title',
-            center: '',
-            right: 'prev,next'
-        },
-		eventClick: function(calEvent, jsEvent, view) {
-			alert( calEvent.title );
-		},
-        events: [
-            {
-                title: 'iTunes Festival',
-                start: new Date(y, m, 1),
-                end: new Date(y, m, 1),
-                location: 'sdasdsd',
-                important: true,
-                past:true
+    //Get events from server and create calendar with events
+    $.get("/event", function(data){
+
+        //Create list of events 
+        var eventsList = [];
+        for( var i=0; i<data.length; i++ ){
+            var curEvent = {
+                title: data[i].name,
+                start: new Date( data[i].startDate),
+                end: new Date(data[i].endDate),
+                location: data[i].address
+                // important: true
             }
-        ],
-        eventRender: function(event, element) {
-            element.find('.fc-event-inner').html(evTpl(event));
+            eventsList.push( curEvent );
         }
+
+        //Create calendar using list of events
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'title',
+                center: '',
+                right: 'prev,next'
+            },
+    		eventClick: function(calEvent, jsEvent, view) {
+    			alert( calEvent.title );
+    		},
+            events: eventsList,
+            eventRender: function(event, element) {
+                element.find('.fc-event-inner').html(evTpl(event));
+            }
+        });
+            
+
     });
 });
