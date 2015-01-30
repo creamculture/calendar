@@ -1,0 +1,1 @@
+MONGOLAB_URI: mongodb://heroku_app33580717:201vviomnvg59mjohhk0b752ob@ds053838.mongolab.com:53838/heroku_app33580717
