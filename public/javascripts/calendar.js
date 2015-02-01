@@ -32,7 +32,7 @@ $(document).ready(function(){
             tpl += '<div class="marker"></div>';
         }
         //tpl += '<i class="fa fa-circle"></i>';
-        tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'<br>'+ev.location+'</span>';
+        tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
         tpl += '</div>';
         return tpl;
     };
@@ -47,8 +47,8 @@ $(document).ready(function(){
                 title: data[i].name,
                 start: new Date( data[i].startDate),
                 end: new Date(data[i].endDate),
-                location: data[i].address
-                // important: true
+                location: data[i].address,
+                important: true
             }
             eventsList.push( curEvent );
         }

@@ -17,14 +17,16 @@ exports.login = function(req, res) {
     }, function (err, doc) {
         if (err) {
             // If it failed, return error
-            res.send("There was a problem adding the information to the database.");
+            res.send("DB_FAIL");
         }
 		else{
 			if( doc.length==0 )
-				res.send("Invalid Login");
+				res.send("LOGIN_FAIL");
 			//Send user to their home dashboard
-			else
-				res.render('user_dashboard', {"username": doc[0].username});
+			else{
+                req.session.username = doc[0].username;
+                res.render('user_dashboard', {"username": req.session.username});
+            }
 		}
 
     });

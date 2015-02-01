@@ -21,7 +21,7 @@ block body
 					div.row
 						div.col-lg-6
 							div.box.box80.pull-right
-								form#formAddUser(name="register")
+								form#formAddUser(name="register", method="post", action="/register")
 									input#inputUsername(placeholder="Username", type="text", name="username")
 									input#inputUserEmail(placeholder="E-mail", type="text", name="email")
 									input#inputPassword(placeholder="Password", type="password", name="password")

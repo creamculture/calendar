@@ -1,10 +1,13 @@
 //Server-side
 
 exports.renderUserDashboard = function(req, res) {
-    res.render('user_dashboard');
+    if( req.session.username )
+        res.render('user_dashboard', {"username": req.session.username});
+    else
+        res.send("FORBIDDEN!");
 };
 
-// Handles the submission of a form containing new event info
+// Deserializes and saves in DB the form sent from client
 exports.saveNewEvent = function(req, res) {
 	var name = req.body.eventName;
 	var address = req.body.eventAddr;
@@ -13,10 +16,9 @@ exports.saveNewEvent = function(req, res) {
     var endDate = req.body.endDate;
 	var description = req.body.eventDesc;
 
-    var db = req.db;
-    var collection = db.get("events");
+    var eventsCollection = req.db.get("events");
 
-    collection.insert({
+    eventsCollection.insert({
     	"name" : name,
     	"address" : address,
     	"city" : city,
@@ -30,15 +32,16 @@ exports.saveNewEvent = function(req, res) {
 				res.send("Event successfully added to DB");
     	}
     );
+
+    //Update user collection with this newly created event
 };
 
 //Called by calendar to populate with events
 exports.getEvents = function(req, res){
 
-    var db = req.db;
-    var collection = db.get("events");
+    var eventsCollection = req.db.get("events");
 
-    collection.find( {}, function(err, doc){
+    eventsCollection.find( {}, function(err, doc){
         res.send( doc );
     });
 

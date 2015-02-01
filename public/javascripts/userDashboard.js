@@ -1,4 +1,4 @@
-// In createEventTab
+// In createEventTab ////////////////////////////////////////////////////////////////
 
 //Turn input boxes into a datepicker
 $('#startDateInput').datepicker({
@@ -7,6 +7,7 @@ $('#startDateInput').datepicker({
 $('#endDateInput').datepicker({
     format: "mm/dd/yyyy"
 });  
+
 
 //Handle sending form with new event info to server
 $("#createEventSubmit").click(function(){
