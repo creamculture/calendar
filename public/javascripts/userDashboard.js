@@ -18,6 +18,7 @@ $("#createEventSubmit").click(function(){
 	}
 	else{
 		$.post( "/event", $( "#formCreateEvent" ).serialize(), function(data){
+			//Create client side cookie
 			alert(data); 
 		});
 	}

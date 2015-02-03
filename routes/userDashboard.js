@@ -7,6 +7,15 @@ exports.renderUserDashboard = function(req, res) {
         res.send("FORBIDDEN!");
 };
 
+//Update user doc in DB with this newly created event
+function updateUserInfo(req, idStr){
+    var userCollection = req.db.get("users");
+    userCollection.update(
+       { username: req.session.username },
+       { $push: { eventsCreated: idStr } }
+    );
+}
+
 // Deserializes and saves in DB the form sent from client
 exports.saveNewEvent = function(req, res) {
 	var name = req.body.eventName;
@@ -24,16 +33,19 @@ exports.saveNewEvent = function(req, res) {
     	"city" : city,
     	"startDate" : startDate,
         "endDate" : endDate,
-    	"description" : description
+    	"description" : description,
+        "attendees" : [ req.session.username ]
     	}, function (err, doc) {
 			if (err) 
 				res.send("There was a problem adding an event to the database.");
-			else
+			else{
+                updateUserInfo(req, doc._id);
 				res.send("Event successfully added to DB");
+            }
     	}
     );
 
-    //Update user collection with this newly created event
+
 };
 
 //Called by calendar to populate with events

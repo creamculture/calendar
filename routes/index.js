@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
 //Handle requests to the calendar controller
 var calendar = require("./calendar.js");
 router.get("/calendar", calendar.renderCalendarPage);
+router.post("/calendar", calendar.attendCalendarEvent);
 
 //Handle requests to the userDashboard controller
 var userDashboard = require("./userDashboard.js");
