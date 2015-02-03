@@ -32,7 +32,7 @@ $(document).ready(function(){
             tpl += '<div class="marker"></div>';
         }
         //tpl += '<i class="fa fa-circle"></i>';
-        tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'<br>'+ev.location+'</span>';
+        tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
         tpl += '</div>';
         return tpl;
     };
@@ -43,12 +43,19 @@ $(document).ready(function(){
         //Create list of events 
         var eventsList = [];
         for( var i=0; i<data.length; i++ ){
+
+            //Determine if current session user is in event object's list of attendees
+            var attending = false;
+            if( data[i].attendees.indexOf( $.cookie("username") ) > -1 )
+                attending = true;
+
             var curEvent = {
+                id : data[i]._id,
                 title: data[i].name,
                 start: new Date( data[i].startDate),
                 end: new Date(data[i].endDate),
-                location: data[i].address
-                // important: true
+                location: data[i].address,
+                important: attending
             }
             eventsList.push( curEvent );
         }
@@ -61,7 +68,11 @@ $(document).ready(function(){
                 right: 'prev,next'
             },
     		eventClick: function(calEvent, jsEvent, view) {
-    			alert( calEvent.title );
+                //TODO: Check if user already attending before sending confirm
+    			if( confirm("Attend " + calEvent.title + "?" ) )
+                    $.post("/calendar", {id : calEvent.id}, function(resp){
+                        alert(resp);
+                    });
     		},
             events: eventsList,
             eventRender: function(event, element) {

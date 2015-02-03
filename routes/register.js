@@ -1,5 +1,4 @@
 //Server-side
-
 exports.registerNewUser = function(req, res) {
 	var log4js = require( "log4js" );
 	log4js.configure("./config/log4js.json");
@@ -27,8 +26,7 @@ exports.registerNewUser = function(req, res) {
 				res.send("There was a problem registering to the database.");
 			}
 			else{
-				//res.send("Great Success");
-				res.redirect("/");
+				res.render("welcome_login");
 			}
     });
 };

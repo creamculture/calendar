@@ -14,11 +14,5 @@ $("#registrationSubmit").click(function(){
 		alert("Invalid Email");
 		return;
 	}
-	//Send valid information to server
-	else{
-		$.post( "/register", $( "#formAddUser" ).serialize(), function(data){
-			alert(data); 
-			$.get("/");
-		});
-	}
+
 });

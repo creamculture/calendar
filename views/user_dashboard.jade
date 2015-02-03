@@ -47,17 +47,12 @@ html
               li.active
                 a(data-toggle='tab', href='#section-home') Home
               li
-                a(data-toggle='tab', href='#section-events') My Events
-              li
                 a(data-toggle='tab', href='#section-create-event') Create Event
               li
                 a(data-toggle='tab', href='#section-profile') Profile
     .tab-content
       #section-home.tab-pane.fade.in.active
         include ./dashboardTabs/homeTab.jade
-
-      #section-events.tab-pane.fade
-        include ./dashboardTabs/myEventsTab.jade
 
       #section-create-event.tab-pane.fade
         include ./dashboardTabs/createEventTab.jade
