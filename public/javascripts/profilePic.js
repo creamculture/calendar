@@ -138,7 +138,7 @@ $(document).ready(function() {
 
             var pp3 = document.getElementById('navProfilePicture');
             pp3.src = getImgSrc(pp3.src) + "?" + new Date().getTime();
-          }, 500);
+          }, 1000);
 
           $('#uploadedImage').width('100%');
           $('#uploadedImage').height('');
