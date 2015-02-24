@@ -5,9 +5,15 @@
 .form-area
   .container
     .row
-      .col-lg-5
-        img.userface.pull-right(src='/images/userface.jpg')
-      .col-lg-7
+      .col-lg-5.col-sm-5
+        table(style='margin: 0 0 0 auto')
+          tr
+            td
+              img#profilePicture.userface.pull-right(style='width:206px;height:205px' src='/images/profile/' + username)
+          tr
+            td
+              button.btn.btn-large(id="changeProfilePic", type="button", data-toggle="modal", data-target="#myModal", data-backdrop="static", data-keyboard="false") Change
+      .col-lg-7.col-sm-7
         .box.registry
           form
             div
@@ -24,3 +30,28 @@
               input(placeholder='MIAMI', type='text')
             div
               button(type="button") SAVE
+
+
+  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-body
+            table.table.table-bordered(style='width:100%')
+              tr
+                td(style='width:70%')
+                  // upload form
+                  form#uploadForm(style='margin-bottom:20px' enctype='multipart/form-data', action='/api/uploadProfilePicture', method='post')
+                    input#userPhotoInput(type='file', name='userPhoto')
+                  img#uploadedImage(style='width: 100%', src='', alt='')
+                td(style='width:30%')
+                  table(style='width:100%')
+                    tr
+                      td(style='colspan:2')
+                        #preview-pane
+                          .preview-container
+                            img.jcrop-preview(src='', alt='')
+                    tr
+                      td(style='width:50%; text-align:center')
+                        button#sendCrop.btn.btn-primary(style='width:90%' type='button' disabled='disabled', data-dismiss='modal') Save
+                      td(style='width:50%')
+                        button#cancelCrop.btn.btn-default(style='width:90%' type='button', data-dismiss='modal') Cancel

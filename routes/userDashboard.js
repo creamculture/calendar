@@ -46,3 +46,51 @@ exports.getEvents = function(req, res){
     });
 
 };
+
+exports.uploadProfilePicture = function(req, res){
+  //console.log(JSON.stringify(req.files));
+  var serverPath = 'images/profile/' + req.files.userPhoto.name;
+  var pathToServer = './public/';
+
+  require('fs').rename(
+    //userPhoto is the input name
+    req.files.userPhoto.path,
+    pathToServer + serverPath,
+    function(error){
+      if(error){
+        console.log(error)
+        res.send({
+          error: 'File uploaded cancelled, error.'
+        });
+        return;
+      }
+
+      res.send({
+        path: serverPath
+      });
+    }
+  )
+
+};
+
+exports.cropProfilePicture = function(req, res){
+  var gm = require('gm').subClass({ imageMagick: true });
+  var resizeX = 400;
+  var resizeY = 400;
+
+  var src = req.body.src;
+  var name = req.body.name;
+  var coords = req.body.data;
+  var pathToServer = './public/';
+
+  gm(pathToServer + src).crop(coords.w, coords.h, coords.x, coords.y).resize(resizeX,resizeY).write(pathToServer + 'images/profile/' + req.session.username, function(err){
+    if (!err){
+      console.log("Image: " + name + " Cropped");
+      res.send("success");
+    }
+    else
+    {
+      res.send(err);
+    }
+  })
+};
