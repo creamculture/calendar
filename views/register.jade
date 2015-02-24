@@ -1,10 +1,50 @@
-extends layout
+extends ./base.jade
 
-block content
-	form#formAddUser(name="register")
-		input#inputUserName(type="text", placeholder="username", name="username")
-		input#inputPassword(type="text", placeholder="password", name="password")
-		input#reinputPassword(type="text", placeholder="confirm password", name="confirm password")
-		input#inputUserEmail(type="text", placeholder="useremail", name="useremail")
+block title
+	title Cream Culture - Account
+block body
+	body.account
+		block head
+			header#header.inverted
+				div.container
+					div.row
+						div.col-lg-12
+							div.account-head
+								div#logo
+									h5 CREAM CULTURE
+		block content
+			div.subtitle.text-center
+				h4 CREATE AN ACCOUNT
+				small Lorem ipsum dolor amet consectetur adipisicing
+			div.form-area
+				div.container
+					div.row
+						div.col-lg-6
+							div.box.box80.pull-right
+								form#formAddUser(name="register", method="post", action="/register")
+									input#inputUsername(placeholder="Username", type="text", name="username")
+									input#inputUserEmail(placeholder="E-mail", type="text", name="email")
+									input#inputPassword(placeholder="Password", type="password", name="password")
+									input#reinputPassword(placeholder="Confirm Password", type="password", name="confirm-password")
+									button#registrationSubmit JOIN THE CULTURE
+									ul.list-unstyled.list-inline
+										li
+											input(type="checkbox", id="policy")
+										li
+											label(for="policy", class="normal-weight") I have read and accept the <strong>privacy policy</strong>
+						div.col-lg-6
+							div.box.box80.text-center
+								h4 JOIN US USING FACEBOOK
+								p Lorem ipsum dolor sit amet, consectetur  cisicing eiusmod tempo
+								img(src="/images/fbflag.jpg")
+								div.facepile
+					div.row
+						div.col-lg-12.text-center
+							p Do you have an account? <a id="loggin-anchor"><span class="glyphicon glyphicon-lock"></span>Loggin</a>
+							br
 
-		button#registrationSubmit submit
+
+		block jscripts
+			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
+			script(src='/libs/bootstrap.js',type='text/javascript')
+			script(src='/javascripts/register.js',type='text/javascript')

@@ -1,0 +1,34 @@
+div.graybg
+	div.subtitle.text-center
+		h4 CREATE AN EVENT
+		small Lorem ipsum dolor amet consectetur adipisicing
+	div.form-area
+		form#formCreateEvent
+			div.container
+				div.row
+					div.col-lg-5
+						div.box.box90.pull-right
+								div
+									label EVENT NAME
+									input(id="eventNameInput", type="text", name="eventName")
+								div
+									label ADDRESS
+									input(id="addressInput", type="text", name="eventAddr")
+								div
+									label CITY
+									input(id="cityInput", type="text", name="eventCity")
+								div
+									label START DATE
+									input(id="startDateInput", type="text", name="startDate")
+								div
+									label END DATE
+									input(id="endDateInput", type="text", name="endDate")
+								div
+									label ADD PHOTOS
+					div.col-lg-7
+						div.box.box90
+							div
+								label DESCRIPTION
+								textarea(id="big", name="eventDesc")
+								button(id="createEventSubmit", type="button") SUBMIT
+	br

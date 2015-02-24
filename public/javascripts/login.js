@@ -1,26 +1,25 @@
+//Client-side
 $(document).ready(function() {
-	$("#registrationSubmit").click(function(){
-		if( $("#inputUserName").val()=="" || $("#inputPassword").val()=="" ||
-			$("#reinputPassword").val()=="" || $("#inputUserEmail").val()=="" ){
-			alert("All fields must be completed");
-			return;
-		}
-		if( $("#inputPassword").val() != $("#reinputPassword").val() ){
-			alert("Passwords must match");
-			return;
-		}
-		//validate email
-		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if( !re.test($("#inputUserEmail").val()) ){
-			alert("Invalid Email");
-			return;
-		}
-		else{
-			$.post( "/register", $( "#formAddUser" ).serialize(), function(data){
-				alert(data); 
-				$.get("/");
-			});
-		}
-	});
-	
+
+	$('#login').fancybox();
+    $('#close-form').on('click',function(){
+        $.fancybox.close();
+    });
+
+ //    $("#userLogin").submit(function(){
+	//     $.post( "/login", $( "#userLogin" ).serialize(), function(resp){
+	// 		switch(resp){
+	// 			case "DB_FAIL":
+	// 				alert("Error connecting to database");
+	// 				break;
+	// 			case "LOGIN_FAIL":
+	// 				alert("Login failed: Check credentials");
+	// 				break;
+	// 			// case "SUCCESS":
+	// 			// 	$.get("/dashboard");
+	// 			// 	break;
+	// 		}
+	// 	});
+	// 	return false;
+	// });
 });

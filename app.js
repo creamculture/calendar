@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer  = require('multer');
+var expressSession = require('express-session');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -13,6 +15,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
+app.use(multer({ dest: './uploads/'}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -20,9 +23,12 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+//Cookies and sessions woohoo
+app.use(cookieParser('yousecretcode'));
+app.use(expressSession({secret: 'yourothersecretcode', saveUninitialized: true, resave: true}));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
     req.db = db;
     next();
@@ -61,6 +67,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
