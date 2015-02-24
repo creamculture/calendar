@@ -127,14 +127,18 @@ $(document).ready(function() {
           disablePreview();
           $('#userPhotoInput').val('');
 
-          var pp = document.getElementById('profilePicture');
-          pp.src = getImgSrc(pp.src) + "?" + new Date().getTime();
+          setTimeout(
+          function()
+          {
+            var pp = document.getElementById('profilePicture');
+            pp.src = getImgSrc(pp.src) + "?" + new Date().getTime();
 
-          var pp2 = document.getElementById('homeProfilePicture');
-          pp2.src = getImgSrc(pp2.src) + "?" + new Date().getTime();
+            var pp2 = document.getElementById('homeProfilePicture');
+            pp2.src = getImgSrc(pp2.src) + "?" + new Date().getTime();
 
-          var pp3 = document.getElementById('navProfilePicture');
-          pp3.src = getImgSrc(pp3.src) + "?" + new Date().getTime();
+            var pp3 = document.getElementById('navProfilePicture');
+            pp3.src = getImgSrc(pp3.src) + "?" + new Date().getTime();
+          }, 100);
 
           $('#uploadedImage').width('100%');
           $('#uploadedImage').height('');
