@@ -101,13 +101,6 @@ exports.cropProfilePicture = function(req, res){
           var writestream = gfs.createWriteStream({ filename: req.session.username });
           // open a stream to the temporary file created by Express...
           fs.createReadStream(pathToFile)
-            .on('end', function() {
-              res.send('OK');
-            })
-            .on('error', function() {
-              res.send('ERR');
-            })
-            // and pipe it to gfs
             .pipe(writestream);
 
           // Clean up
