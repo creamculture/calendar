@@ -27,10 +27,13 @@ exports.registerNewUser = function(req, res) {
 			}
 			else{
         //copy users profile picture
-        var fs = require('fs');
-        fs.createReadStream('./public/images/userface.jpg').pipe(fs.createWriteStream('./public/images/profile/' + username));
+        var mkdirp = require('mkdirp');
+        mkdirp('./public/images/profile', function(err) {
+          var fs = require('fs');
+          fs.createReadStream('./public/images/userface.jpg').pipe(fs.createWriteStream('./public/images/profile/' + username));
 
-				res.render("welcome_login");
+          res.render("welcome_login");
+        });
 			}
     });
 };
