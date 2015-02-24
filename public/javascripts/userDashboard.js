@@ -23,3 +23,8 @@ $("#createEventSubmit").click(function(){
 		});
 	}
 });
+
+// In profile tab ////////////////////////////////////////////////////////////////
+$("#profilePic").click(function(){
+	
+});
