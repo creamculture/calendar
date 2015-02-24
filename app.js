@@ -15,7 +15,9 @@ var routes = require('./routes/index');
 
 var app = express();
 
-require('mkdirp').mkdirp('./uploads');
+var mkdirp = require('mkdirp');
+mkdirp.mkdirp('./uploads');
+mkdirp.mkdirp('./public/images/profile');
 
 app.use(multer({ dest: './uploads/'}));
 // view engine setup
