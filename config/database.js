@@ -6,7 +6,7 @@
     database.getDb = function(next){
         if(!theDb) {
             //connect to the database
-            mongodb.MongoClient.connect('mongodb://localhost/nodetest1', function (err, db) {
+            mongodb.MongoClient.connect('mongodb://admin:admin@ds053838.mongolab.com:53838/heroku_app33580717', function (err, db) {
                 if(err){
                     next(null);
                 } else {
