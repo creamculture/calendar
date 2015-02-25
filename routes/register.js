@@ -26,11 +26,7 @@ exports.registerNewUser = function(req, res) {
 				res.send("There was a problem registering to the database.");
 			}
 			else{
-        //copy users profile picture
-        var fs = require('fs');
-        fs.createReadStream('./public/images/userface.jpg').pipe(fs.createWriteStream('./public/images/profile/' + username));
-
-				res.render("welcome_login");
+        res.render("welcome_login");
 			}
     });
 };

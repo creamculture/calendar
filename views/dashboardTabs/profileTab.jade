@@ -9,7 +9,7 @@
         table(style='margin: 0 0 0 auto')
           tr
             td
-              img#profilePicture.userface.pull-right(style='width:206px;height:205px' src='/images/profile/' + username)
+              img#profilePicture.userface.pull-right(style='width:206px;height:205px' src='/api/getProfilePicture')
           tr
             td
               button.btn.btn-large(id="changeProfilePic", type="button", data-toggle="modal", data-target="#myModal", data-backdrop="static", data-keyboard="false") Change
@@ -43,13 +43,13 @@
                   form#uploadForm(style='margin-bottom:20px' enctype='multipart/form-data', action='/api/uploadProfilePicture', method='post')
                     input#userPhotoInput(type='file', name='userPhoto')
                   img#uploadedImage(style='width: 100%', src='', alt='')
+                  #preview-pane
+                    .preview-container
+                      img.jcrop-preview(src='', alt='')
                 td(style='width:30%')
                   table(style='width:100%')
                     tr
-                      td(style='colspan:2')
-                        #preview-pane
-                          .preview-container
-                            img.jcrop-preview(src='', alt='')
+                      td(style='colspan:2;height:300px')
                     tr
                       td(style='width:50%; text-align:center')
                         button#sendCrop.btn.btn-primary(style='width:90%' type='button' disabled='disabled', data-dismiss='modal') Save
