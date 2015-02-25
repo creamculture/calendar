@@ -7,6 +7,8 @@ html
     link(href='/stylesheets/font-awesome/css/font-awesome.min.css', rel='stylesheet')
     link(href='/stylesheets/styles.css', rel='stylesheet')
     link(href='/stylesheets/datepicker.css', rel='stylesheet')
+    link(href='/stylesheets/jquery.Jcrop.min.css',rel='stylesheet')
+    link(href='/stylesheets/jcrop-preview.css',rel='stylesheet')
     //if lt IE 9
       script(src='/libs/javascripts/html5shiv.js', type='text/javascript')
       script(src='/libs/javascripts/respond.min.js', type='text/javascript')
@@ -31,7 +33,7 @@ html
                 .btn-group.pull-right
                   button.btn.btn-default(type='button')
                     span.avatar
-                      img(src='/images/avatar.jpg')
+                      img#navProfilePicture(src='/api/getProfilePicture')
                     span MARY S.
                   button.btn.dropdown-toggle(type='button', data-toggle='dropdown')
                     span.caret
@@ -155,3 +157,6 @@ html
       script(src='/libs/bootstrap.js',type='text/javascript')
       script(src='/libs/bootstrap-datepicker.js',type='text/javascript')
       script(src='/javascripts/userDashboard.js',type='text/javascript')
+      script(src='/javascripts/profilePic.js',type='text/javascript')
+      script(src='/libs/jquery.Jcrop.min.js',type='text/javascript')
+      script(src='/libs/jquery.form.min.js',type='text/javascript')

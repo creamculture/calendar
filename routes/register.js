@@ -26,7 +26,7 @@ exports.registerNewUser = function(req, res) {
 				res.send("There was a problem registering to the database.");
 			}
 			else{
-				res.render("welcome_login");
+        res.render("welcome_login");
 			}
     });
 };
