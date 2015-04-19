@@ -1,88 +1,279 @@
-extends ./base.jade
-append stylesheets
-	link(href='/stylesheets/jquery.fancybox.css?v=2.1.2',rel='stylesheet',media='screen')
-block title
-	title Cream Culture - Home
-block body
-	body.home
-		block head
-			header#header
-				div.container
-					div.row
-						div.col-lg-12
-							div.social-bar
-								ul(class='pull-right list-unstyled list-inline')
-									li
-										a: img(class='fb',src='/images/fb.png')
-									li
-										a: img(class='tw',src='/images/tw.png')
-									li
-										a: img(class='gp',src='/images/g+.png')
-					div.row
-						div(class='col-lg-3')
-							div#logo
-								h5 CREAM CULTURE
-						div(class='col-lg-9')
-							ul(id='nav',class='pull-right list-unstyled list-inline clearfix')
-								li
-									a magazine
-								li
-									a store
-								li
-									a#login(href="#dialog-form") login
-								li
-									a.join-us(href="/register") join us
-		block content
-			div.container
-				div.row
-					div#event-advertiser
-						ul(class='events list-unstyled')
-							li.event.clearfix
-								section.edate
-									div.month
-										p september
-										p.bline	___
-										- for (var x = 3; x <= 9; x++)
-											p.line(class="l"+x) __
-									div.day 04
-								section.description
-									p.ename int'l freeski film festival
-									p.location montreal, ca, usa
-							li.event.active
-								section.edate
-									div.month
-										p september
-										p.bline	___
-										- for (var x = 3; x <= 5; x++)
-											p.line(class="l"+x) __
-									div.day 28
-								section.description
-									p.ename coldwater classic
-									p.location santa cruz, ca, usa
-				div.hidden
-					div#dialog-form
-						header
-							span.title login
-							span#close-form.fa.fa-times.pull-right
-						form#userLogin(name="userlogin", method="post", action="/login")
-							div#field-area
-								ul.list-unstyled.list-inline
-									li: label USERNAME
-									li: input(name="username")
-								ul.list-unstyled.list-inline
-									li: label PASSWORD
-									li: input(name="password")
-								span forgot your password? <a class="ch">click here</a>
-							footer
-								ul.list-unstyled.list-inline
-									li
-										label <input type="checkbox"> remember me
-									li.pull-right
-										button(type="submit") LOGIN
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='/stylesheets/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/stylesheets/styles.css', rel='stylesheet')
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/full-slider.css', rel='stylesheet')
+    link(href='/stylesheets/jquery.fancybox.css?v=2.1.2', rel='stylesheet', media='screen')
+    //if lt IE 9
+      link(href='../assets/javascripts/fancybox/source/jquery.fancybox.css?v=2.1.2', rel='stylesheet', media='screen')
+      //if lt IE 9
+        script(src='/libs/html5shiv.js', type='text/javascript')
+        script(src='/libs/respond.min.js', type='text/javascript')
+    title Cream Culture - Home
+  body.home
+    header#header
+      .container(style='padding: 10px;')
+        // Navigation
+        nav.navbar.navbar-inverse(role='navigation')
+          .container
+            // Brand and toggle get grouped for better mobile display
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a#logo.navbar-brand.top-logo(href='index.html')
+                h5 CREAM CULTURE
+            // Collect the nav links, forms, and other content for toggling
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul#nav.nav.navbar-nav.pull-right.list-unstyled.list-inline.clearfix
+                li
+                  a calendar
+                li
+                  a magazine
+                li
+                  a store
+                li
+                  a#login(href='#dialog-form') login
+                li
+                  a.join-us(href="/register")  join us
+            // /.navbar-collapse
+          // /.container
+    section#fullscreenSlider
+      // Full Page Image Background Carousel Header
+      header#myCarousel.carousel.slide
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#myCarousel', data-slide-to='0')
+          li(data-target='#myCarousel', data-slide-to='1')
+          li(data-target='#myCarousel', data-slide-to='2')
+        // Wrapper for Slides
+        .carousel-inner
+          .item.active
+            // Set the first background image using inline CSS below.
+            .fill(style="background-image:url('/images/homeback.jpg');")
+            .carousel-caption
+              .container.topContent
+                .row
+                  #event-advertiser
+                    ul.events.list-unstyled
+                      li.event.clearfix.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                            p.line.l6 __
+                            p.line.l7 __
+                            p.line.l8 __
+                            p.line.l9 __
+                          .day 04
+                        section.description
+                          p.ename int'l freeski film festival
+                          p.location montreal, ca, usa
+                      li.event.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                          .day 28
+                        section.description
+                          p.ename coldwater classic
+                          p.location santa cruz, ca, usa
+                .hidden
+                  #dialog-form
+                    header
+                      span.title login
+                      span#close-form.fa.fa-times.pull-right
+                    form
+                      #field-area
+                        ul.list-unstyled.list-inline
+                          li
+                            label EMAIL ADDRESS
+                          li
+                            input(type='email')
+                        ul.list-unstyled.list-inline
+                          li
+                            label PASSWORD
+                          li
+                            input(type='password')
+                        span
+                          | forgot your password? 
+                          a.ch click here
+                      footer
+                        ul.list-unstyled.list-inline
+                          li
+                            label
+                              input(type='checkbox')
+                              |  remember me
+                          li.pull-right
+                            button(type='submit') LOGIN
+          .item
+            // Set the second background image using inline CSS below.
+            .fill(style="background-image:url('/images/homeback.jpg');")
+            .carousel-caption
+              .container.topContent
+                .row
+                  #event-advertiser
+                    ul.events.list-unstyled
+                      li.event.clearfix.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                            p.line.l6 __
+                            p.line.l7 __
+                            p.line.l8 __
+                            p.line.l9 __
+                          .day 05
+                        section.description
+                          p.ename int'l freeski film festival
+                          p.location montreal, ca, usa
+                      li.event.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                          .day 29
+                        section.description
+                          p.ename coldwater classic
+                          p.location santa cruz, ca, usa
+                .hidden
+                  #dialog-form
+                    header
+                      span.title login
+                      span#close-form.fa.fa-times.pull-right
+                    form
+                      #field-area
+                        ul.list-unstyled.list-inline
+                          li
+                            label EMAIL ADDRESS
+                          li
+                            input(type='email')
+                        ul.list-unstyled.list-inline
+                          li
+                            label PASSWORD
+                          li
+                            input(type='password')
+                        span
+                          | forgot your password? 
+                          a.ch click here
+                      footer
+                        ul.list-unstyled.list-inline
+                          li
+                            label
+                              input(type='checkbox')
+                              |  remember me
+                          li.pull-right
+                            button(type='submit') LOGIN
+          .item
+            // Set the third background image using inline CSS below.
+            .fill(style="background-image:url('/images/homeback.jpg');")
+            .carousel-caption
+              .container.topContent
+                .row
+                  #event-advertiser
+                    ul.events.list-unstyled
+                      li.event.clearfix.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                            p.line.l6 __
+                            p.line.l7 __
+                            p.line.l8 __
+                            p.line.l9 __
+                          .day 10
+                        section.description
+                          p.ename int'l freeski film festival
+                          p.location montreal, ca, usa
+                      li.event.active
+                        section.edate
+                          .month
+                            p september
+                            p.bline 	___
+                            p.line.l3 __
+                            p.line.l4 __
+                            p.line.l5 __
+                          .day 30
+                        section.description
+                          p.ename coldwater classic
+                          p.location santa cruz, ca, usa
+                .hidden
+                  #dialog-form
+                    header
+                      span.title login
+                      span#close-form.fa.fa-times.pull-right
+                    form
+                      #field-area
+                        ul.list-unstyled.list-inline
+                          li
+                            label EMAIL ADDRESS
+                          li
+                            input(type='email')
+                        ul.list-unstyled.list-inline
+                          li
+                            label PASSWORD
+                          li
+                            input(type='password')
+                        span
+                          | forgot your password? 
+                          a.ch click here
+                      footer
+                        ul.list-unstyled.list-inline
+                          li
+                            label
+                              input(type='checkbox')
+                              |  remember me
+                          li.pull-right
+                            button(type='submit') LOGIN
+        // Controls
+        //
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="icon-prev"></span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="icon-next"></span>
+          </a>
+    footer
+      .container
+        .row
+          .col-lg-12
+            .social-bar
+              ul.pull-right.list-unstyled.list-inline
+                li
+                  a
+                    img.fb(src='/images/fb.png')
+                li
+                  a
+                    img.tw(src='/images/tw.png')
+                li
+                  a
+                    img.gp(src='/images/g+.png')
+        // Navigation
+    script(src='/libs/jquery-1.11.0.min.js', type='text/javascript')
+    script(src='/libs/jquery-migrate-1.2.1.min.js', type='text/javascript')
+    script(src='/libs/bootstrap.js', type='text/javascript')
+    script(src='/libs/jquery.fancybox.pack.js', type='text/javascript')
+    script(src='/javascripts/login.js', type='text/javascript')
 
-		block jscripts
-			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
-			script(src='/libs/jquery-migrate-1.2.1.min.js',type='text/javascript')
-			script(src='/libs/bootstrap.js',type='text/javascript')
-			script(src='/libs/jquery.fancybox.pack.js',type='text/javascript')
-			script(src='/javascripts/login.js',type='text/javascript')

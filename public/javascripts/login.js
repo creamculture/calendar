@@ -5,6 +5,10 @@ $(document).ready(function() {
     $('#close-form').on('click',function(){
         $.fancybox.close();
     });
+	
+	  $('#myCarousel').carousel({
+  interval: 5000 //changes the speed
+  })
 
  //    $("#userLogin").submit(function(){
 	//     $.post( "/login", $( "#userLogin" ).serialize(), function(resp){
