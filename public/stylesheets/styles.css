@@ -367,8 +367,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.eot);
-  src: url(/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  src: url(/assets/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.eot);
+  src: url(/assets/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/assets/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(/assets/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(/assets/stylesheets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 
 /* line 25, C:/Ruby200/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.2.0.1/assets/stylesheets/bootstrap/_glyphicons.scss */
@@ -8067,8 +8067,8 @@ button.close {
 }
 @font-face {
   font-family: 'Futura Medium';
-  src: url("/stylesheets/fonts/futura/ufonts.com_futura_medium.eot");
-  src: url("/stylesheets/fonts/futura/ufonts.com_futura_medium.eot?#iefix") format("embedded-opentype"), url("/stylesheets/fonts/fonts/futura/ufonts.com_futura_medium.ttf") format("truetype");
+  src: url("../stylesheets/fonts/futura/ufonts.com_futura_medium.eot");
+  src: url("../stylesheets/fonts/futura/ufonts.com_futura_medium.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fonts/fonts/futura/ufonts.com_futura_medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -8080,8 +8080,9 @@ body {
   color: #565656;
 }
 /* line 18, ../sass/styles.scss */
-body.home, body.calendar {
-  background: url("/images/homeback.jpg") no-repeat;
+body.calendar {
+  background: url("../images/homeback.jpg") no-repeat;
+  background-size:cover;
 }
 /* line 21, ../sass/styles.scss */
 body.account {
@@ -8145,11 +8146,11 @@ div.divider {
 
 /* line 72, ../sass/styles.scss */
 div.social-bar {
-  margin-top: 1.4em;
+  margin-top: 8px;
 }
 /* line 74, ../sass/styles.scss */
 div.social-bar ul {
-  margin-bottom: 1.8em;
+  margin-bottom: 8px;
 }
 /* line 76, ../sass/styles.scss */
 div.social-bar ul li:last-child {
@@ -8163,28 +8164,34 @@ div.social-bar ul img {
 }
 /* line 85, ../sass/styles.scss */
 div.social-bar img.fb {
-  background-image: url("/images/fb.png");
+  background-image: url("../images/fb.png");
 }
 /* line 88, ../sass/styles.scss */
 div.social-bar img.tw {
-  background-image: url("/images/tw.png");
+  background-image: url("../images/tw.png");
 }
 /* line 91, ../sass/styles.scss */
 div.social-bar img.gp {
-  background-image: url("/images/g+.png");
+  background-image: url("../images/g+.png");
 }
 
 /* line 96, ../sass/styles.scss */
 #logo {
+  background: url("../images/logomark.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #353535;
-  background: url("../images/logomark.png") no-repeat;
 }
 /* line 99, ../sass/styles.scss */
+body.home #logo h5 {
+  color: #f8f8f8;
+  font-size: 15px;
+  margin: 0 0 0 35px;
+  line-height: 13px;
+}
 #logo h5 {
   color: #f8f8f8;
-  font-size: 1em;
-  margin: 0 0 0 65px;
+  font-size: 15px;
   line-height: 40px;
+  margin: 0 0 0 55px;
 }
 
 /* line 108, ../sass/styles.scss */
@@ -8316,7 +8323,7 @@ header#header a.back {
 
 /* line 210, ../sass/styles.scss */
 #event-advertiser {
-  margin-top: 17em;
+  margin-top: 12em;
 }
 /* line 212, ../sass/styles.scss */
 #event-advertiser .event {
@@ -8334,9 +8341,10 @@ header#header a.back {
 }
 /* line 222, ../sass/styles.scss */
 #event-advertiser .event .edate {
+  line-height: 4em;
   margin-top: 10px;
   width: 20%;
-  line-height: 4em;
+  min-width: 210px;
 }
 /* line 226, ../sass/styles.scss */
 #event-advertiser .event .edate div {
@@ -8400,7 +8408,12 @@ header#header a.back {
 }
 /* line 261, ../sass/styles.scss */
 #event-advertiser .event .description {
-  width: 80%;
+  width: 70%;
+}
+.home #event-advertiser .event .description {
+  width: 70%;
+  text-align: left;
+  margin-left: 60px;
 }
 /* line 264, ../sass/styles.scss */
 #event-advertiser .event .ename {
@@ -9210,4 +9223,111 @@ footer#footer section.copyright ul {
 /* line 911, ../sass/styles.scss */
 .fancybox-close {
   display: none;
+}
+
+#nav a {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+nav.navbar.navbar-inverse {
+  background: none;
+  border: none;
+}
+#nav a:hover {
+  text-decoration: underline;
+}
+.home > section#fullscreenSlider {
+  height: 100%;
+  max-height: 900px;
+  min-height: 700px;
+  min-width: 100%;
+  position: relative;
+}
+.container.topContent {
+  position: relative;
+}
+@media only screen and (min-width:320px) and (max-width:360px){
+#event-advertiser .event .description {
+  width: 60%;
+}
+#event-advertiser .event .edate div {
+  width: auto;
+  font-size:20px;
+}
+#event-advertiser .event .edate {
+  min-width: 162px;
+  
+}
+#event-advertiser .event .description {
+  width: 47%;
+  font-size: 12px;
+  text-transform: capitalize !important;
+  margin-top: 21px;
+  margin-left: 2%;
+}
+.row > div#event-advertiser {
+  margin-top: 50px;
+}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px){
+#event-advertiser .event .description {
+  width: 60%;
+}
+.home > section#fullscreenSlider {
+  min-height: 1030px;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 800px){
+#event-advertiser .event .description {
+  width: 60%;
+}
+.home > section#fullscreenSlider {
+  min-height: 1290px;
+}
+}
+@media only screen and (min-width: 800px) and (max-width: 980px){
+
+.home > section#fullscreenSlider {
+  min-height: 1290px;
+}
+}
+.home > header {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+  border-bottom: 5px solid rgba(255, 255, 255, 0.1);
+}
+#logo h5 {
+  min-height: 50px;
+}
+.home .carousel-caption {
+  left: 20%;
+  text-align: left;
+  top: 21%;
+  width: 53%;
+}
+
+@media only screen and (min-width:1000px) and (max-width:1400px){
+.home .carousel-caption{left:7%}
+}
+
+@media only screen and (max-width:768px){
+ul#nav {
+  width: 100%;
+}
+ul#nav li {
+  float: left;
+  max-width: 50%;
+  min-width: 50%;
+}
+nav.navbar {
+  margin-bottom: 0;
+}
+div#bs-example-navbar-collapse-1 {
+  background: none repeat scroll 0 0 #4c4c4c;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 55px;
+  z-index: 9;
+}
 }
