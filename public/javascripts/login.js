@@ -6,24 +6,26 @@ $(document).ready(function() {
         $.fancybox.close();
     });
 	
-	  $('#myCarousel').carousel({
-  interval: 5000 //changes the speed
-  })
+	//Activates splash page carousel
+	$('#myCarousel').carousel({
+		interval: 5000 //changes the speed
+	})
 
- //    $("#userLogin").submit(function(){
-	//     $.post( "/login", $( "#userLogin" ).serialize(), function(resp){
-	// 		switch(resp){
-	// 			case "DB_FAIL":
-	// 				alert("Error connecting to database");
-	// 				break;
-	// 			case "LOGIN_FAIL":
-	// 				alert("Login failed: Check credentials");
-	// 				break;
-	// 			// case "SUCCESS":
-	// 			// 	$.get("/dashboard");
-	// 			// 	break;
-	// 		}
-	// 	});
-	// 	return false;
-	// });
+	/*$("#userLogin").submit(function(){
+console.log( "submit" );
+		$.post( "/login", $( "#userLogin" ).serialize(), function(resp){
+			switch(resp){
+				case "DB_FAIL":
+				alert("Error connecting to database");
+				break;
+			case "LOGIN_FAIL":
+				alert("Login failed: Check credentials");
+				break;
+			case "SUCCESS":
+				$.get("/dashboard");
+				break;
+			}
+		});
+		return false;
+	});*/
 });

@@ -6,7 +6,7 @@ exports.login = function(req, res) {
     // Get our form values. These rely on the "name" attributes
     var username = req.body.username;
     var userPassword = req.body.password;
-
+console.log( username );
     // Set our collection
     var collection = db.get('users');
 

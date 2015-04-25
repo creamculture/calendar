@@ -91,34 +91,6 @@ html
                         section.description
                           p.ename coldwater classic
                           p.location santa cruz, ca, usa
-                .hidden
-                  #dialog-form
-                    header
-                      span.title login
-                      span#close-form.fa.fa-times.pull-right
-                    form
-                      #field-area
-                        ul.list-unstyled.list-inline
-                          li
-                            label EMAIL ADDRESS
-                          li
-                            input(type='email')
-                        ul.list-unstyled.list-inline
-                          li
-                            label PASSWORD
-                          li
-                            input(type='password')
-                        span
-                          | forgot your password? 
-                          a.ch click here
-                      footer
-                        ul.list-unstyled.list-inline
-                          li
-                            label
-                              input(type='checkbox')
-                              |  remember me
-                          li.pull-right
-                            button(type='submit') LOGIN
           .item
             // Set the second background image using inline CSS below.
             .fill(style="background-image:url('/images/homeback.jpg');")
@@ -155,34 +127,7 @@ html
                         section.description
                           p.ename coldwater classic
                           p.location santa cruz, ca, usa
-                .hidden
-                  #dialog-form
-                    header
-                      span.title login
-                      span#close-form.fa.fa-times.pull-right
-                    form
-                      #field-area
-                        ul.list-unstyled.list-inline
-                          li
-                            label EMAIL ADDRESS
-                          li
-                            input(type='email')
-                        ul.list-unstyled.list-inline
-                          li
-                            label PASSWORD
-                          li
-                            input(type='password')
-                        span
-                          | forgot your password? 
-                          a.ch click here
-                      footer
-                        ul.list-unstyled.list-inline
-                          li
-                            label
-                              input(type='checkbox')
-                              |  remember me
-                          li.pull-right
-                            button(type='submit') LOGIN
+
           .item
             // Set the third background image using inline CSS below.
             .fill(style="background-image:url('/images/homeback.jpg');")
@@ -219,26 +164,21 @@ html
                         section.description
                           p.ename coldwater classic
                           p.location santa cruz, ca, usa
-                .hidden
-                  #dialog-form
+                div.hidden
+                  div#dialog-form
                     header
                       span.title login
                       span#close-form.fa.fa-times.pull-right
-                    form
-                      #field-area
+                    form#userLogin(name="userlogin", method="post", action="/login")
+                      div#field-area
                         ul.list-unstyled.list-inline
-                          li
-                            label EMAIL ADDRESS
-                          li
-                            input(type='email')
+                          li: label USERNAME
+                          li: input(name="username")
                         ul.list-unstyled.list-inline
-                          li
-                            label PASSWORD
-                          li
-                            input(type='password')
+                          li: label PASSWORD
+                          li: input(name="password")
                         span
-                          | forgot your password? 
-                          a.ch click here
+                          | forgot your password? <a class="ch">click here</a>
                       footer
                         ul.list-unstyled.list-inline
                           li
