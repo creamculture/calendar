@@ -24,7 +24,7 @@ exports.login = function(req, res) {
 			//Send user to their home dashboard
 			else{
                 req.session.username = doc[0].username;
-                res.send("SUCCESS");
+                res.render('user_dashboard', {"username": req.session.username});
             }
 		}
 
