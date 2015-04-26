@@ -1,0 +1,169 @@
+extends ../base
+block title
+	title Cream Culture - Magazine
+block body
+	body.light-gray
+		.container#magazine-main-wrapper
+			block head
+				include magazine-header
+			block content
+				.row
+					.col-lg-12
+						ul#timerline
+							li.activated
+								p.month-title january
+								p.active (this month)
+							li
+								p.month-title december
+								p.active (this month)
+							li
+								p.month-title november
+								p.active (this month)
+							li
+								p.month-title october
+								p.active (this month)
+
+				.row
+					.col-lg-12#mh-carousel-wrapper
+						div(id="mh-carousel",class="carousel slide",data-ride="carousel")
+							.carousel-inner
+								.item.active: img(src="/images/magazine-carrousel/sample.jpg",alt="...")
+								.item: img(src="/images/magazine-carrousel/sample.jpg",alt="...")
+								.item: img(src="/images/magazine-carrousel/sample.jpg",alt="...")
+							a(class="left carousel-control",href="#mh-carousel", data-slide="prev")
+								div: i.fa.fa-angle-left
+							a(class="right carousel-control",href="#mh-carousel", data-slide="next")
+								div: i.fa.fa-angle-right				
+				.row#magazine-tags
+					.col-lg-1
+						#tags-title: a tags
+					.col-lg-11
+						ul.list-inline
+							li: a.active all
+							li: a producer
+							li: a arts
+							li: a sports
+							li: a life
+				.row
+					.col-lg-12#magazine-video
+						video(class="full-width",height="383",poster="/images/video-poster.jpg")
+				.row
+					.col-lg-12
+						section#magazine-news
+							header: h2 all news
+							.row
+								.col-lg-4.right-border
+									article
+										header
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+									article
+										header
+											.post-media
+												img(src="/images/fev-img-big.jpg",class="img-responsive")
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+
+								.col-lg-4.right-border
+									article.new
+										//en caso de ser articulo nuevo, incluir la imagen a continuacion....
+										img(src="/images/new-post-tag.jpg",class="new-ribbon")
+										header
+											.post-media
+												img(src="/images/fev-img-big.jpg",class="img-responsive")
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+									article
+										header
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+
+								.col-lg-4
+									article
+										header
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+									article.new
+										img(src="/images/new-post-tag.jpg",class="new-ribbon")
+										header
+											.post-media
+												img(src="/images/fev-img-big.jpg",class="img-responsive")
+											h4 the title for this new post goes here, just crazy
+											small.post-date march 05, 2015
+										p.
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident... <a>read more</a>
+				footer#footer					
+					section.row.navigation
+						div.col-lg-6
+							ul.list-unstyled.list-inline.first
+								li: a faq
+								li: a contact us
+								li: a store
+								li: a block
+						div.col-lg-6
+							ul.list-unstyled.list-inline.pull-right
+								li: p find us on
+								li
+									a
+										i.fa.fa-facebook
+								li
+									a
+										i.fa.fa-twitter
+								li
+									a
+										i.fa.fa-google-plus
+								li
+									a
+										i.fa.fa-instagram							
+					section.copyright
+						div.row
+							div.col-lg-12
+								span.copy &copy; cream culture, inc
+								ul.list-unstyled.list-inline.pull-right
+									li: a terms of use
+									li: span -
+									li: a security and privacy
+							
+		block jscripts
+			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
+			script(src='/libs/bootstrap.js',type='text/javascript')

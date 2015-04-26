@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'FuturaLightBT';
+	src: url('./FuturaLightBT.eot');
+	src: local('FuturaLightBT'), url('./FuturaLightBT.woff') format('woff'), url('./FuturaLightBT.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_20676">Text with this font applied</p> */
+.fontsforweb_fontid_20676 {
+	font-family: 'FuturaLightBT' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */

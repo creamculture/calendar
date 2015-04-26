@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'FutuMd';
+	src: url('./FutuMd.eot');
+	src: local('FutuMd'), url('./FutuMd.woff') format('woff'), url('./FutuMd.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_11934">Text with this font applied</p> */
+.fontsforweb_fontid_11934 {
+	font-family: 'FutuMd' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */

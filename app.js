@@ -8,9 +8,11 @@ var expressSession = require('express-session');
 
 var mongo = require('mongodb');
 var monk = require('monk');
+
 var db = monk('mongodb://admin:admin@ds053838.mongolab.com:53838/heroku_app33580717');
 
-var routes = require('./routes/index');
+
+var routes = require('./routes/MainController');
 
 var app = express();
 
