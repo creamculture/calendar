@@ -11,6 +11,7 @@ exports.renderUserDashboard = function(req, res) {
         res.send("FORBIDDEN!");
 };
 
+
 //Update user doc in DB with this newly created event
 function updateUserInfo(req, idStr){
     var userCollection = req.db.get("users");
@@ -20,7 +21,7 @@ function updateUserInfo(req, idStr){
     );
 }
 
-// Deserializes and saves in DB the form sent from client
+// Deserializes event and saves in DB the form sent from client
 exports.saveNewEvent = function(req, res) {
 	var name = req.body.eventName;
 	var address = req.body.eventAddr;
