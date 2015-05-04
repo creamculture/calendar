@@ -28,11 +28,12 @@ $(document).ready(function(){
         classes += (ev.today)?' ev-today':'';
 
         var tpl = '<div class="'+classes+'">';
-        if(ev.important){
-            tpl += '<div class="marker"></div>';
-        }
+        //if(ev.important){
+        //    tpl += '<div class="marker"></div>';
+        //}
         //tpl += '<i class="fa fa-circle"></i>';
-        tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
+        //tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
+				tpl += '<span class="ev-data"><img height="150px" src="/api/getEventPhoto/' + ev._id + '" />';
         tpl += '</div>';
         return tpl;
     };
@@ -44,6 +45,7 @@ $(document).ready(function(){
         var eventsList = [];
         for( var i=0; i<data.length; i++ ){
             var curEvent = {
+								_id: data[i]._id,
                 title: data[i].name,
                 start: new Date( data[i].startDate),
                 end: new Date(data[i].endDate),

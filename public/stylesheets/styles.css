@@ -9157,7 +9157,7 @@ footer#footer section.copyright ul {
 
 /* line 800, ../sass/styles.scss */
 .fc-content .dc-event.ev-important {
-    padding-top:4em;
+    /*padding-top:4em;*/
     background:#fbf3f2
 }
 

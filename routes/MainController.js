@@ -22,6 +22,9 @@ router.get("/dashboard", userDashboard.renderUserDashboard);
 router.post("/event", userDashboard.saveNewEvent);
 router.get("/event", userDashboard.getEvents);
 
+router.post("/api/uploadEventPhoto", userDashboard.uploadEventPhoto);
+router.post("/api/cropEventPhoto", userDashboard.cropEventPhoto);
+router.get("/api/getEventPhoto/:eventId*?", userDashboard.getEventPhoto);
 
 //Handle requests to register controller functions
 var register = require("./register.js");

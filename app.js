@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
+var multer  = require('multer');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -14,6 +15,12 @@ var routes = require('./routes/MainController');
 
 var app = express();
 
+var mkdirp = require('mkdirp');
+mkdirp.mkdirp('./uploads');
+mkdirp.mkdirp('./public/images/events');
+mkdirp.mkdirp('./public/images/events/cropped');
+
+app.use(multer({ dest: './uploads/'}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
