@@ -8,23 +8,28 @@ div.graybg
 				div.row
 					div.col-lg-5
 						div.box.box90.pull-right
-								div
-									label EVENT NAME
-									input(id="eventNameInput", type="text", name="eventName")
-								div
-									label ADDRESS
-									input(id="addressInput", type="text", name="eventAddr")
-								div
-									label CITY
-									input(id="cityInput", type="text", name="eventCity")
-								div
-									label START DATE
-									input(id="startDateInput", type="text", name="startDate")
-								div
-									label END DATE
-									input(id="endDateInput", type="text", name="endDate")
-								div
-									label ADD PHOTOS
+							div
+								label EVENT NAME
+								input(id="eventNameInput", type="text", name="eventName")
+								input(id="eventIdInput", type="hidden", name="eventId")
+							div
+								label ADDRESS
+								input(id="addressInput", type="text", name="eventAddr")
+							div
+								label CITY
+								input(id="cityInput", type="text", name="eventCity")
+							div
+								label START DATE
+								input(id="startDateInput", type="text", name="startDate")
+							div
+								label END DATE
+								input(id="endDateInput", type="text", name="endDate")
+							div
+								label ADD PHOTOS
+								br
+								img#eventPhoto(src='/api/getEventPhoto' width='100%')
+								br
+								button.btn.btn-large(id="changeEventPic", type="button", data-toggle="modal", data-target="#eventPicModal", data-backdrop="static", data-keyboard="false") Add
 					div.col-lg-7
 						div.box.box90
 							div
@@ -32,3 +37,26 @@ div.graybg
 								textarea(id="big", name="eventDesc")
 								button(id="createEventSubmit", type="button") SUBMIT
 	br
+	#eventPicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+		.modal-dialog.modal-lg
+			.modal-content
+				.modal-body
+					table.table.table-bordered(style='width:100%')
+						tr
+							td(style='width:70%')
+								// upload form
+								form#eventPhotoForm(style='margin-bottom:20px' enctype='multipart/form-data', action='/api/uploadEventPhoto', method='post')
+									input#eventPhotoInput(type='file', name='eventPhoto')
+								img#uploadedEventPhoto(style='width: 100%', src='', alt='')
+								#event-photo-preview-pane
+									.event-photo-preview-container
+										img.jcrop-preview(src='', alt='')
+							td(style='width:30%')
+								table(style='width:100%')
+									tr
+										td(style='colspan:2;height:300px')
+									tr
+										td(style='width:50%; text-align:center')
+											button#cropEventPhoto.btn.btn-primary(style='width:90%' type='button' disabled='disabled', data-dismiss='modal') Save
+										td(style='width:50%')
+											button#cancelCropEventPhoto.btn.btn-default(style='width:90%' type='button', data-dismiss='modal') Cancel

@@ -2,3 +2,6 @@
 bower_components/
 .editorconfig
 public/images/profile
+public/images/events
+uploads/
+node_modules/

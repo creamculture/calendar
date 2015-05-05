@@ -1,5 +1,6 @@
 doctype html
 html
+<<<<<<< HEAD
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -55,91 +56,149 @@ html
     .tab-content
       #section-home.tab-pane.fade.in.active
         include ./dashboardTabs/homeTab.jade
+=======
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='/stylesheets/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+		link(href='/stylesheets/styles.css', rel='stylesheet')
+		link(href='/stylesheets/datepicker.css', rel='stylesheet')
+		link(href='/stylesheets/jquery.Jcrop.min.css',rel='stylesheet')
+		link(href='/stylesheets/jcrop-preview.css',rel='stylesheet')
+		//if lt IE 9
+			script(src='/libs/javascripts/html5shiv.js', type='text/javascript')
+			script(src='/libs/javascripts/respond.min.js', type='text/javascript')
+		title Cream Culture - User
+	body
+		header#header.inverted
+			br
+			.container
+				.row
+					.col-lg-3
+						#logo
+							h5 CREAM CULTURE
+					.col-lg-9
+						ul#nav.pull-right.list-unstyled.list-inline.clearfix
+							li
+								a(href="/calendar") calendar
+							li
+								a(href="/magazine") magazine
+							li
+								a store
+							li.logged-user
+								.btn-group.pull-right
+									button.btn.btn-default(type='button')
+										span.avatar
+											img(src='/images/avatar.jpg')
+										span MARY S.
+									button.btn.dropdown-toggle(type='button', data-toggle='dropdown')
+										span.caret
+										span.sr-only Toggle Dropdown
+									ul.dropdown-menu(role='menu')
+										li
+											a Action
+		#subnav
+			.container
+				.row
+					.col-lg-12
+						ul.list-unstyled
+							li.active
+								a(data-toggle='tab', href='#section-home') Home
+							li
+								a(data-toggle='tab', href='#section-create-event') Create Event
+							li
+								a(data-toggle='tab', href='#section-profile') Profile
+		.tab-content
+			#section-home.tab-pane.fade.in.active
+				include ./dashboardTabs/homeTab.jade
+>>>>>>> create-event
 
-      #section-create-event.tab-pane.fade
-        include ./dashboardTabs/createEventTab.jade
+			#section-create-event.tab-pane.fade
+				include ./dashboardTabs/createEventTab.jade
 
-      #section-profile.tab-pane.fade
-        include ./dashboardTabs/profileTab.jade
+			#section-profile.tab-pane.fade
+				include ./dashboardTabs/profileTab.jade
 
-    section#event-featured
-      .container
-        .row
-          .col-lg-2
-            ul.list-unstyled.list-inline.fev-tag
-              li
-                img(src='/images/red-tag.jpg')
-              li FEATURED EVENT
-          .col-lg-6
-            h3 COLDWATER CLASSIC
-            .location
-              i.fa.fa-map-marker
-              span SANTA CRUZ, CA, USA
-          .col-lg-4
-            ul.list-unstyled.list-inline.pull-right
-              li.share-this
-                i.fa.fa-share-square-o
-                small SHARE THIS PAGE
-              li.print-this
-                i.fa.fa-print
-                small PRINT THIS PAGE (PDF)
-        .row
-          .col-lg-8
-            .row
-              .col-lg-12
-                .description
-                  header
-                    span   Description
-                  img.full-width(src='/images/fev-img-big.jpg')
-                  .ev-desc
-                    .row
-                      .col-lg-3
-                        img.full-width(src='/images/if3.jpg')
-                      .col-lg-9
-                        p.paragraph
-                          | The iF3 searches, recognizes and rewards the best of what the freeski community and spirit has to offer.
-                          | We produce innovating and entertaining events and media that unites sport with culture, for both a local and international.
-                          | The iF3 searches, recognizes and rewards the best of what the freeski community and spirit has to offer.
-                          | We produce innovating and entertaining events and media that unites sport with culture, for both a local and international...
-                          a Read more
-                        .divider
-                        img(src='/images/social-share.jpg')
-          .col-lg-4
-            //
-            .row
-              .col-lg-12
-                .right-column
-                  header.clearfix
-                    span.information Information
-                    span.website
-                      | Official Website 
-                      small#question ?
-                  .right-box
-                    section.map
-                      h4 80 COLUMBUS CIRCLE, NEW YORK, NY 10025
-                      img.full-width(src='/images/map.jpg')
-                    section.appointment
-                      h4
-                        | SEPTEMBER 21 -23, 
-                        br
-                        br
-                        |  2014 
-                        br
-                        |  ___ 
-                        br
-                        br
-                        |  06:45 AM - 10:30 PM
-                      .gallery
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
-                        img.ap-thumb(src='/images/thumb.jpg')
+		section#event-featured
+			.container
+				.row
+					.col-lg-2
+						ul.list-unstyled.list-inline.fev-tag
+							li
+								img(src='/images/red-tag.jpg')
+							li FEATURED EVENT
+					.col-lg-6
+						h3 COLDWATER CLASSIC
+						.location
+							i.fa.fa-map-marker
+							span SANTA CRUZ, CA, USA
+					.col-lg-4
+						ul.list-unstyled.list-inline.pull-right
+							li.share-this
+								i.fa.fa-share-square-o
+								small SHARE THIS PAGE
+							li.print-this
+								i.fa.fa-print
+								small PRINT THIS PAGE (PDF)
+				.row
+					.col-lg-8
+						.row
+							.col-lg-12
+								.description
+									header
+										span   Description
+									img.full-width(src='/images/fev-img-big.jpg')
+									.ev-desc
+										.row
+											.col-lg-3
+												img.full-width(src='/images/if3.jpg')
+											.col-lg-9
+												p.paragraph
+													| The iF3 searches, recognizes and rewards the best of what the freeski community and spirit has to offer.
+													| We produce innovating and entertaining events and media that unites sport with culture, for both a local and international.
+													| The iF3 searches, recognizes and rewards the best of what the freeski community and spirit has to offer.
+													| We produce innovating and entertaining events and media that unites sport with culture, for both a local and international...
+													a Read more
+												.divider
+												img(src='/images/social-share.jpg')
+					.col-lg-4
+						//
+						.row
+							.col-lg-12
+								.right-column
+									header.clearfix
+										span.information Information
+										span.website
+											| Official Website
+											small#question ?
+									.right-box
+										section.map
+											h4 80 COLUMBUS CIRCLE, NEW YORK, NY 10025
+											img.full-width(src='/images/map.jpg')
+										section.appointment
+											h4
+												| SEPTEMBER 21 -23,
+												br
+												br
+												|  2014
+												br
+												|  ___
+												br
+												br
+												|  06:45 AM - 10:30 PM
+											.gallery
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
+												img.ap-thumb(src='/images/thumb.jpg')
 
+<<<<<<< HEAD
     footer
       section.copyright
         .container
@@ -160,3 +219,25 @@ html
       script(src='/javascripts/profilePic.js',type='text/javascript')
       script(src='/libs/jquery.Jcrop.min.js',type='text/javascript')
       script(src='/libs/jquery.form.min.js',type='text/javascript')
+=======
+		footer
+			section.copyright
+				.container
+					.row
+						.col-lg-12
+							span © cream culture, inc
+							ul.list-unstyled.list-inline.pull-right
+								li
+									a terms of use
+								li
+									span -
+								li
+									a security and privacy
+			script(src='/libs/jquery-1.11.0.min.js',type='text/javascript')
+			script(src='/libs/bootstrap.js',type='text/javascript')
+			script(src='/libs/bootstrap-datepicker.js',type='text/javascript')
+			script(src='/javascripts/userDashboard.js',type='text/javascript')
+			script(src='/javascripts/eventPic.js',type='text/javascript')
+			script(src='/libs/jquery.Jcrop.min.js',type='text/javascript')
+			script(src='/libs/jquery.form.min.js',type='text/javascript')
+>>>>>>> create-event

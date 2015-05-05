@@ -19,6 +19,10 @@
     "monk": "*",
     "morgan": "~1.0.0",
     "multer": "^0.1.8",
+<<<<<<< HEAD
+=======
+    "serve-favicon": "^2.2.0",
+>>>>>>> create-event
     "static-favicon": "~1.0.0"
   }
 }
