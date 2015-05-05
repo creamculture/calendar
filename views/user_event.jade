@@ -23,7 +23,7 @@ block body
 								li.logged-user
 									div.btn-group.pull-right
 										button(type="button",class="btn btn-default")
-											span.avatar: img(src="/images/avatar.jpg")
+											span.avatar: img#navProfilePicture(src='/api/getProfilePicture')
 											span MARY S.
 										button(type="button",class="btn dropdown-toggle",data-toggle="dropdown")
 											span.caret

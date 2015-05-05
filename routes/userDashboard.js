@@ -1,13 +1,7 @@
 //Server-side
-<<<<<<< HEAD
 var fs      = require('fs');
 var mongo   = require('mongodb');
 var Grid    = require('gridfs-stream');
-var myDb = require('../config/database');
-=======
-var fs = require('fs');
-var mongo = require('mongodb');
-var Grid = require('gridfs-stream');
 var myDb = require('../config/database');
 
 exports.uploadEventPhoto = function(req, res){
@@ -39,8 +33,8 @@ exports.uploadEventPhoto = function(req, res){
 
 exports.cropEventPhoto = function(req, res){
 	var gm = require('gm').subClass({ imageMagick: true });
-	var resizeX = 400;
-	var resizeY = 400;
+	var resizeX = 133;
+	var resizeY = 100;
 
 	var src = req.body.src;
 	var name = req.body.name;
@@ -104,7 +98,6 @@ exports.getEventPhoto = function(req, res) {
 		});
 	}
 };
->>>>>>> create-event
 
 exports.renderUserDashboard = function(req, res) {
     if( req.session.username )

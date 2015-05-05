@@ -43,8 +43,8 @@
                   form#uploadForm(style='margin-bottom:20px' enctype='multipart/form-data', action='/api/uploadProfilePicture', method='post')
                     input#userPhotoInput(type='file', name='userPhoto')
                   img#uploadedImage(style='width: 100%', src='', alt='')
-                  #preview-pane
-                    .preview-container
+                  #profile-photo-preview-pane
+                    .profile-photo-preview-container
                       img.jcrop-preview(src='', alt='')
                 td(style='width:30%')
                   table(style='width:100%')

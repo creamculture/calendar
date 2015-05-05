@@ -10,7 +10,7 @@ var multer  = require('multer');
 var mongo = require('mongodb');
 var monk = require('monk');
 
-var db = monk('mongodb://admin:admin@ds053838.mongolab.com:53838/heroku_app33580717');
+var db = monk('mongodb://localhost/CreamCulture');
 
 
 var routes = require('./routes/MainController');

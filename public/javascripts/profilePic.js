@@ -9,9 +9,9 @@ $(document).ready(function() {
   // Check to see when a user has selected a file
   var jcrop_api;
   var bounds, boundx, boundy;
-  var $preview = $('#preview-pane');
-  var $pcnt = $('#preview-pane .preview-container');
-  var $pimg = $('#preview-pane .preview-container img');
+  var $preview = $('#profile-photo-preview-pane');
+  var $pcnt = $('#profile-photo-preview-pane .profile-photo-preview-container');
+  var $pimg = $('#profile-photo-preview-pane .profile-photo-preview-container img');
   var info = {};
   var xsize = $pcnt.width();
   var ysize = $pcnt.height();

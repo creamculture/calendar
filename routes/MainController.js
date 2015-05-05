@@ -22,17 +22,14 @@ router.get("/dashboard", userDashboard.renderUserDashboard);
 router.post("/event", userDashboard.saveNewEvent);
 router.get("/event", userDashboard.getEvents);
 
-<<<<<<< HEAD
 //Profile pic load/upload/crop functions
 router.post("/api/uploadProfilePicture", userDashboard.uploadProfilePicture);
 router.post("/api/cropProfilePicture", userDashboard.cropProfilePicture);
 router.get("/api/getProfilePicture", userDashboard.getProfilePicture);
 
-=======
 router.post("/api/uploadEventPhoto", userDashboard.uploadEventPhoto);
 router.post("/api/cropEventPhoto", userDashboard.cropEventPhoto);
 router.get("/api/getEventPhoto/:eventId*?", userDashboard.getEventPhoto);
->>>>>>> create-event
 
 //Handle requests to register controller functions
 var register = require("./register.js");
