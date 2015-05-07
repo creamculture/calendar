@@ -145,10 +145,21 @@ exports.toggleEventAttendance = function(req, res){
 exports.deleteEvent = function(req, res){
 	var eventId = req.body.eventId;
 	var eventsCollection = req.db.get("events");
+	var userCollection = req.db.get("users");
 
 	eventsCollection.remove(
 		{ _id: eventId}, function(err){
-			res.send(200);
+			userCollection.update(
+				{ eventsAttended: eventId },
+				{ $pull: { eventsAttended: eventId } },function (err) {
+					userCollection.update(
+						{ eventsCreated: eventId },
+						{ $pull: { eventsCreated: eventId } },function (err) {
+							res.send(200);
+						}
+					);
+				}
+			);
 		});
 };
 
