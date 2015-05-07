@@ -28,9 +28,9 @@ $(document).ready(function(){
 		classes += (ev.today)?' ev-today':'';
 
 		var tpl = '<div class="'+classes+'">';
-		//if(ev.important){
-		//    tpl += '<div class="marker"></div>';
-		//}
+		if(ev.attending) {
+			tpl += '<div class="marker"></div>';
+		}
 		//tpl += '<i class="fa fa-circle"></i>';
 		//tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
 		var imgUrl = '/api/getEventPhoto/' + ev._id;
@@ -38,47 +38,93 @@ $(document).ready(function(){
 		tpl += '</div>';
 		return tpl;
 	};
+	$.get("/getUserName", function(username){
+		$("#username").val(username);
+		//Get events from server and create calendar with events
+		$.get("/event", function(data){
 
-	//Get events from server and create calendar with events
-	$.get("/event", function(data){
-
-		//Create list of events
-		var eventsList = [];
-		for( var i=0; i<data.length; i++ ){
-			var curEvent = {
-				_id: data[i]._id,
-				title: data[i].name,
-				description: data[i].description,
-				start: new Date( data[i].startDate),
-				end: new Date(data[i].endDate),
-				location: data[i].address,
-				important: true
-			};
-			eventsList.push( curEvent );
-		}
-
-		//Create calendar using list of events
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'title',
-				center: '',
-				right: 'prev,next'
-			},
-			eventClick: function(calEvent, jsEvent, view) {
-				$("#eventTitle").text(calEvent.title);
-				$("#eventDescription").text(calEvent.description);
-				$("#eventLocation").text(calEvent.location);
-				$("#eventStart").text(calEvent.start.toString().slice(0, 15));
-				$("#eventEnd").text(calEvent.end.toString().slice(0, 15));
-				$("#eventImg").attr("src", '/api/getEventPhoto/' + calEvent._id);
-
-				$('#eventModal').modal('show');
-				// alert( calEvent.title );
-			},
-			events: eventsList,
-			eventRender: function(event, element) {
-				element.find('.fc-event-inner').html(evTpl(event));
+			//Create list of events
+			var eventsList = [];
+			for( var i=0; i<data.length; i++ ){
+				var curEvent = {
+					_id: data[i]._id,
+					title: data[i].name,
+					description: data[i].description,
+					start: new Date( data[i].startDate),
+					end: new Date(data[i].endDate),
+					location: data[i].address,
+					creator: data[i].creator,
+					attendees: data[i].attendees,
+					attending: userInAttendees(username, data[i].attendees),
+					important: true
+				};
+				eventsList.push( curEvent );
 			}
+
+			//Create calendar using list of events
+			$('#calendar').fullCalendar({
+				header: {
+					left: 'title',
+					center: '',
+					right: 'prev,next'
+				},
+				eventClick: function(calEvent, jsEvent, view) {
+					$("#eventTitle").text(calEvent.title);
+					$("#eventDescription").text(calEvent.description);
+					$("#eventLocation").text(calEvent.location);
+					$("#eventStart").text(calEvent.start.toString().slice(0, 15));
+					if(calEvent.end) {
+						$("#eventEnd").text(calEvent.end.toString().slice(0, 15));
+					} else {
+						$("#eventEnd").text(calEvent.start.toString().slice(0, 15));
+					}
+					$("#eventImg").attr("src", '/api/getEventPhoto/' + calEvent._id);
+
+					if(calEvent.creator === username) {
+						$("#deleteEvent").removeAttr("disabled");
+					} else {
+						$("#deleteEvent").attr("disabled", "disabled");
+					}
+
+					$('#eventModal').modal('show');
+
+					if(calEvent.attending){
+						$("#attendEvent").html('Not Attend')
+					} else {
+						$("#attendEvent").html('Attend')
+					}
+
+					$("#attendEvent").click(function(){
+						$.post( "/toggleEventAttendance", {eventId: calEvent._id}, function(data){
+							if($("#attendEvent").html() === 'Attend'){
+								$("#attendEvent").html('Not Attend')
+							} else {
+								$("#attendEvent").html('Attend')
+							}
+						});
+					});
+
+					$("#deleteEvent").click(function(){
+						$.post( "/deleteEvent", {eventId: calEvent._id}, function(data){
+							window.location.reload();
+						});
+					});
+				},
+				events: eventsList,
+				eventRender: function(event, element) {
+					element.find('.fc-event-inner').html(evTpl(event));
+				}
+			});
 		});
 	});
 });
+
+function userInAttendees(username, attendees){
+	var ret = false;
+	attendees.forEach(function (attendee) {
+		if(username === attendee){
+			ret = true
+		}
+	});
+	return ret;
+}

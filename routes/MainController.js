@@ -20,6 +20,8 @@ router.get("/calendar", calendar.renderCalendarPage);
 var userDashboard = require("./userDashboard.js");
 router.get("/dashboard", userDashboard.renderUserDashboard);
 router.post("/event", userDashboard.saveNewEvent);
+router.post("/toggleEventAttendance", userDashboard.toggleEventAttendance);
+router.post("/deleteEvent", userDashboard.deleteEvent);
 router.get("/event", userDashboard.getEvents);
 
 //Profile pic load/upload/crop functions
@@ -41,7 +43,7 @@ router.get("/register", register.renderRegPage);
 var login = require("./login.js");
 router.post("/login", login.login);
 
-router.get('/test', function(req, res) {
+router.get('/getUserName', function(req, res) {
 	res.send(req.session.username);
 });
 

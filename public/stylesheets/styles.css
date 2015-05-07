@@ -9169,6 +9169,7 @@ footer#footer section.copyright ul {
 /* line 806, ../sass/styles.scss */
 .fc-content .dc-event.ev-important .marker {
     position:absolute;
+		z-index: 99;
     top:0;
     left:5px;
     width:2em;
