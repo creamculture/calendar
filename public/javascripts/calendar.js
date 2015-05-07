@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+	var currentCalEvent;
 	/**
 	 * De acuerdo al psd y a mi interpretacion, existen las siguientes clasificaciones de eventos:
 	 * 1. Evento pasado
@@ -29,7 +30,9 @@ $(document).ready(function(){
 
 		var tpl = '<div class="'+classes+'">';
 		if(ev.attending) {
-			tpl += '<div class="marker"></div>';
+			tpl += '<div id="' + ev._id + '" class="marker"></div>';
+		} else{
+			tpl += '<div id="' + ev._id + '"></div>';
 		}
 		//tpl += '<i class="fa fa-circle"></i>';
 		//tpl += '<span class="ev-data"><i class="fa fa-circle"></i>'+'<strong>'+ev.title+'</strong>'+'</span>';
@@ -69,6 +72,8 @@ $(document).ready(function(){
 					right: 'prev,next'
 				},
 				eventClick: function(calEvent, jsEvent, view) {
+					currentCalEvent = calEvent;
+					
 					$("#eventTitle").text(calEvent.title);
 					$("#eventDescription").text(calEvent.description);
 					$("#eventLocation").text(calEvent.location);
@@ -89,32 +94,35 @@ $(document).ready(function(){
 					$('#eventModal').modal('show');
 
 					if(calEvent.attending){
-						$("#attendEvent").html('Not Attend')
+						$("#attendEvent").html('Not Attend');
 					} else {
-						$("#attendEvent").html('Attend')
+						$("#attendEvent").html('Attend');
 					}
-
-					$("#attendEvent").click(function(){
-						$.post( "/toggleEventAttendance", {eventId: calEvent._id}, function(data){
-							if($("#attendEvent").html() === 'Attend'){
-								$("#attendEvent").html('Not Attend')
-							} else {
-								$("#attendEvent").html('Attend')
-							}
-						});
-					});
-
-					$("#deleteEvent").click(function(){
-						$.post( "/deleteEvent", {eventId: calEvent._id}, function(data){
-							window.location.reload();
-						});
-					});
 				},
 				events: eventsList,
 				eventRender: function(event, element) {
 					element.find('.fc-event-inner').html(evTpl(event));
 				}
 			});
+		});
+	});
+
+	$("#attendEvent").click(function(){
+		$.post( "/toggleEventAttendance", {eventId: currentCalEvent._id}, function(data){
+			currentCalEvent.attending = data.attending;
+			if(data.attending){
+				$("#attendEvent").html('Not Attend');
+				$("#" + currentCalEvent._id).addClass("marker");
+			} else {
+				$("#attendEvent").html('Attend');
+				$("#" + currentCalEvent._id).removeClass("marker");
+			}
+		});
+	});
+
+	$("#deleteEvent").click(function(){
+		$.post( "/deleteEvent", {eventId: currentCalEvent._id}, function(data){
+			window.location.reload();
 		});
 	});
 });

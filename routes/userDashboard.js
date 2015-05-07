@@ -121,7 +121,7 @@ exports.toggleEventAttendance = function(req, res){
 						eventCollection.update(
 							{ _id: eventId },
 							{ $pull: { attendees: req.session.username } },function (err) {
-								res.send(200);
+								res.send(200, {attending: false});
 							}
 						);
 					}
@@ -133,7 +133,7 @@ exports.toggleEventAttendance = function(req, res){
 						eventCollection.update(
 							{ _id: eventId },
 							{ $push: { attendees: req.session.username } },function (err) {
-								res.send(200);
+								res.send(200, {attending: true});
 							}
 						);
 					}
