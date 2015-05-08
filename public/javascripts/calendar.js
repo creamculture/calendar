@@ -129,10 +129,12 @@ $(document).ready(function(){
 
 function userInAttendees(username, attendees){
 	var ret = false;
-	attendees.forEach(function (attendee) {
-		if(username === attendee){
-			ret = true
-		}
-	});
+	if(attendees) {
+		attendees.forEach(function (attendee) {
+			if (username === attendee) {
+				ret = true
+			}
+		});
+	}
 	return ret;
 }
